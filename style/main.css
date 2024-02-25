@@ -1,1 +1,171 @@
-AAA
+/******************************
+ All website
+*******************************/
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    position: relative;
+}
+
+a {
+    color: #0e9ce0;
+}
+
+hr.hr-intro {
+    margin-top: 0px;
+}
+
+div.row-section {
+    padding: 20px;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+}
+
+/******************************
+ Main Page: Misc
+*******************************/
+
+body, .main-col {
+    background: #f1f3f5;
+}
+
+.page-main iframe.btn-github-star {
+    margin-bottom: -7px;
+    width: 120px;
+    height: 20px;
+}
+
+.page-main img.p-photo {
+    border-radius: 100%;
+}
+
+.page-main .featurette-image {
+    
+}
+
+/******************************
+ Main Page: Map
+*******************************/
+
+.page-main div.gmap_outer {
+    text-align: right;
+    height: 340px;
+    width: auto;
+}
+
+.page-main .gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    height: 340px;
+    width: auto;
+}
+
+.page-main iframe#gmap_iframe {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/******************************
+ Topmenu
+*******************************/
+
+.navbar-topmenu{
+    background: transparent;
+    border-color: transparent;
+}
+
+.topmenu{
+    background: white;
+    border-top: none;
+    border-radius: 0;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+@media (min-width: 768px) {
+    .topmenu {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+}
+@media (min-width: 992px) {
+    .topmenu {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+}
+
+.topmenu li.active a{
+    background: white !important;
+    color: black !important;
+}
+
+img.topmenu-brand-img{
+    width: 24px;
+    height: 24px;
+    margin-top: -1px;
+}
+
+.navbar-topmenu .navbar-collapse {
+    text-align: center;
+}
+
+/******************************
+ Sidemenu
+*******************************/
+
+.sidemenu {
+    padding: 0;
+    min-width: 146px;
+    text-align: right;
+}
+
+.sidemenu ul li {
+    border-bottom: 1px solid #efefef;
+}
+
+.sidemenu ul li:last-child {
+    border-bottom: none;
+}
+
+.sidemenu ul li a {
+    color: gray;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.sidemenu ul li a i {
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.sidemenu ul li.active a{
+    color: black;
+}
+
+.sidemenu ul li a:hover {
+    color: black;
+    background-color: #f1f3f5;
+}
+
+/******************************
+ Misc Elements
+*******************************/
+.fa-star{
+    color: darkgray;
+}
+
+.fa-star-checked {
+    color: orange;
+}
+
+.progress{
+    height: 15px;
+    margin-bottom: 6px;
+}
+
