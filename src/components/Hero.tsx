@@ -12,7 +12,7 @@ export function Hero() {
           transition={{ duration: 0.8 }}
           className="mb-8"
         >
-          <h1 className="text-6xl md:text-8xl font-bold mb-4 whitespace-nowrap">
+          <h1 className="text-6xl md:text-8xl font-bold mb-4">
             {"Abdulrahman Hassan".split("").map((letter, index) => (
               <motion.span
                 key={index}
