@@ -124,7 +124,7 @@ export function Contact() {
           className="text-center mt-16 pt-8 border-t border-gray-700/50"
         >
           <p className="text-gray-500">
-            © 2026 Abdulrahman Hassan. Engineering the future with AI.
+            © {(new Date).getFullYear()} Abdulrahman Hassan. Engineering the future with AI.
           </p>
         </motion.div>
       </div>
