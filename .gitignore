@@ -2,10 +2,6 @@
 /node_modules
 /jspm_packages
 
-# production artifacts
-/build
-/dist
-/public/build
 
 # testing coverage
 /coverage
