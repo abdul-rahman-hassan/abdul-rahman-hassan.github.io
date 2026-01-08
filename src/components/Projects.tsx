@@ -20,8 +20,7 @@ export function Projects() {
       icon: ExternalLink,
       tech: ["Convolutional Neural Networks", "PyTorch", "Python"],
       gradient: "from-blue-400 to-purple-500",
-      demo: "#",
-      github: "#"
+      github: "https://github.com/abdul-rahman-hassan/Landmark-Classification-Project"
     },
     {
       title: "MNIST with PyTorch",
@@ -74,12 +73,15 @@ export function Projects() {
                       <project.icon className="w-6 h-6 text-white" />
                     </motion.div>
                     <div className="flex space-x-2">
-                      <Button size="sm" variant="ghost" className="text-gray-400 hover:text-blue-400">
+                      {/* <Button size="sm" variant="ghost" className="text-gray-400 hover:text-blue-400">
                         <ExternalLink size={16} />
-                      </Button>
+                      </Button> */}
+                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+
                       <Button size="sm" variant="ghost" className="text-gray-400 hover:text-blue-400">
                         <Github size={16} />
                       </Button>
+                      </a>
                     </div>
                   </div>
                   <CardTitle className="text-white group-hover:text-blue-400 transition-colors duration-300">
