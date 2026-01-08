@@ -12,8 +12,33 @@ export function Hero() {
           transition={{ duration: 0.8 }}
           className="mb-8"
         >
-          <h1 className="text-6xl md:text-8xl font-bold mb-4">
-            {"Abdulrahman Hassan".split("").map((letter, index) => (
+          <h1 className="text-6xl md:text-8xl font-bold mb-4 whitespace-nowrap">
+            {"Abdulrahman".split("").map((letter, index) => (
+              <motion.span
+                key={index}
+                initial={{ opacity: 0, y: 50, rotateX: -90 }}
+                animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                transition={{
+                  duration: 0.8,
+                  delay: index * 0.1,
+                  ease: "easeOut"
+                }}
+                className="inline-block bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent"
+                style={{ 
+                  perspective: "1000px",
+                  transformStyle: "preserve-3d"
+                }}
+                whileHover={{
+                  scale: 1.2,
+                  rotateY: 0,
+                  transition: { duration: 0.5 }
+                }}
+              >
+                {letter === " " ? "\u00A0" : letter}
+              </motion.span>
+            ))}
+          </h1><h1 className="text-6xl md:text-8xl font-bold mb-4">
+            {"Hassan".split("").map((letter, index) => (
               <motion.span
                 key={index}
                 initial={{ opacity: 0, y: 50, rotateX: -90 }}
