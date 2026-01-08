@@ -37,7 +37,7 @@ export function Hero() {
                 {letter === " " ? "\u00A0" : letter}
               </motion.span>
             ))}
-          </h1><h1 className="text-6xl md:text-8xl font-bold mb-4">
+          </h1><h1 className="text-6xl md:text-8xl font-bold mb-4 whitespace-nowrap">
             {"Hassan".split("").map((letter, index) => (
               <motion.span
                 key={index}
