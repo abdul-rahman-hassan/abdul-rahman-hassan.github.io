@@ -142,6 +142,7 @@ export function Experience() {
                         </span>
                       ))}
                     </div>
+                    <p className="text-sm text-purple-400 group-hover:text-purple-300 transition-colors">Click to view certificate</p>
                   </CardContent>
                 </Card>
               </a>
