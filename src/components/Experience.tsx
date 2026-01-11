@@ -118,7 +118,7 @@ export function Experience() {
                       <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-purple-400 transition-colors" />
                     </div>
 
-                    <CardTitle className="text-white group-hover:text-purple-400 transition-colors duration-300">
+                    <CardTitle className="text-lg group-hover:text-purple-400 transition-colors duration-300">
                       {exp.title}
                     </CardTitle>
 
@@ -128,7 +128,7 @@ export function Experience() {
                   </CardHeader>
 
                   <CardContent className="relative space-y-4">
-                    <p className="text-sm text-gray-300 leading-relaxed">
+                    <p className="text-md text-gray-400 leading-relaxed">
                       {exp.description}
                     </p>
 
