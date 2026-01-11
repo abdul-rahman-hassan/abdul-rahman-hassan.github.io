@@ -1,6 +1,13 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Briefcase, GraduationCap, TrendingUp, ExternalLinks, Divide} from 'lucide-react';
+import { Award, ExternalLink } from 'lucide-react';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from './ui/card';
 
 export function Experience() {
   const experiences = [
@@ -8,43 +15,58 @@ export function Experience() {
       title: "Deep Learning Specialization",
       company: "DeepLearning.AI",
       period: "December 2025",
-      description: "Completed a comprehensive program covering neural networks, convolutional networks, sequence models, and practical applications of deep learning.",
-      icon: GraduationCap,
+      description:
+        "Completed a comprehensive program covering neural networks, convolutional networks, sequence models, and practical applications of deep learning.",
       demo: "https://www.coursera.org/account/accomplishments/specialization/LX3SW5SASBRV",
-      skills: ["Neural Networks", "Sequence Models", "Convolutional Networks", "Deep Learning Applications"]
+      skills: [
+        "Neural Networks",
+        "Sequence Models",
+        "Convolutional Networks",
+        "Deep Learning Applications"
+      ],
+      gradient: "from-pink-400 to-purple-500"
     },
     {
-      title: "AWS Machine Learning Fundamentals - NanoDegree",
+      title: "AWS Machine Learning Fundamentals – Nanodegree",
       company: "Udacity",
       period: "September 2025",
-      description: "Built models using AWS SageMaker, applied CNNs, transfer learning, and created end-to-end ML workflow solutions on AWS.",
-      icon: GraduationCap,
+      description:
+        "Built models using AWS SageMaker, applied CNNs, transfer learning, and end-to-end ML workflow solutions on AWS.",
       demo: "https://www.udacity.com/certificate/e/e3adfd62-ee8f-11ed-aba2-a789ce06efde",
-      skills: ["AWS SageMaker", "Convolutional Neural Networks", "Transfer Learning", "ML Workflows" ],
+      skills: [
+        "AWS SageMaker",
+        "Convolutional Neural Networks",
+        "Transfer Learning",
+        "ML Workflows"
+      ],
+      gradient: "from-blue-400 to-purple-500"
     },
     {
       title: "SQL Associate Certification",
       company: "DataCamp",
       period: "October 2024",
-      description: "Gained proficiency in SQL for data manipulation, querying, and database management to support data science projects.",
-      icon: GraduationCap,
+      description:
+        "Gained proficiency in SQL for data manipulation, querying, and database management to support data science projects.",
       demo: "https://www.datacamp.com/certificate/SQA0018135515080",
-      skills: ["SQL", "Data Manipulation", "Database Management", "Querying"]
+      skills: ["SQL", "Data Manipulation", "Database Management", "Querying"],
+      gradient: "from-green-400 to-blue-500"
     },
     {
-      title: "AI programmer with Python - NanoDegree",
+      title: "AI Programmer with Python – Nanodegree",
       company: "Udacity",
       period: "March 2023",
-      description: "Learned AI programming fundamentals including search algorithms, logic, planning, and probabilistic models using Python.",
-      icon: GraduationCap,
+      description:
+        "Learned AI programming fundamentals including search algorithms, logic, planning, and probabilistic models using Python.",
       demo: "https://www.udacity.com/certificate/e/ed701f88-5a06-11ed-817d-c761677d1cda",
-      skills: ["Python", "Deep Learning", "Convolutional Neural Networks"]
+      skills: ["Python", "Deep Learning", "Convolutional Neural Networks"],
+      gradient: "from-blue-400 to-black-500"
     }
   ];
 
   return (
     <section className="py-20 px-6">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -52,75 +74,77 @@ export function Experience() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
-            Certificates
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            Certifications
           </h2>
-          
         </motion.div>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-400 via-purple-400 to-pink-400 rounded-full" />
-
+        {/* Grid */}
+        <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
           {experiences.map((exp, index) => (
             <motion.div
               key={exp.title}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.3 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: index * 0.15 }}
               viewport={{ once: true }}
-              className={`relative flex items-center mb-16 ${
-                index % 2 === 0 ? 'justify-start' : 'justify-end'
-              }`}
+              whileHover={{ y: -10, scale: 1.02 }}
+              className="group h-full"
             >
-              {/* Timeline node */}
-              <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ delay: index * 0.3 + 0.5, duration: 0.5 }}
-                viewport={{ once: true }}
-                className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-400 rounded-full border-4 border-gray-900 z-10"
-              />
-
-              {/* Content card */}
-              <motion.a
+              {/* Whole card clickable */}
+              <a
                 href={exp.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                className={`w-5/12 block ${index % 2 === 0 ? 'mr-auto' : 'ml-auto'}`}
+                className="block h-full"
               >
-                <div className="bg-gray-900/80 backdrop-blur-sm border border-gray-700/50 rounded-lg p-6 hover:border-blue-400/50 transition-all duration-300 cursor-pointer">
-                  <div className="flex items-center mb-4">
-                    <div className="p-2 bg-blue-500/20 rounded-full mr-4">
-                      <exp.icon className="w-6 h-6 text-blue-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-white">{exp.title}</h3>
-                      <p className="text-blue-400">{exp.company}</p>
-                    </div>
-                  </div>
+                <Card className="h-full cursor-pointer bg-gray-900/50 border-gray-700/50 hover:border-purple-400/50 transition-all duration-300 relative overflow-hidden">
+                  
+                  {/* Gradient hover wash */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${exp.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
+                  />
 
-                  <p className="text-purple-300 text-sm mb-3">{exp.period}</p>
-                  <p className="text-gray-300 mb-4">{exp.description}</p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {exp.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm border border-purple-400/30"
+                  <CardHeader className="relative">
+                    <div className="flex items-center justify-between mb-4">
+                      <motion.div
+                        whileHover={{ rotate: 360 }}
+                        transition={{ duration: 0.5 }}
+                        className={`p-3 rounded-full bg-gradient-to-r ${exp.gradient} bg-opacity-20`}
                       >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                  <br></br>
-                  <div className="mt-4 text-sm text-blue-400 opacity-70">
-                    Click to view certificate 
-                  </div>
-                </div>
-              </motion.a>
+                        <Award className="w-6 h-6 text-white" />
+                      </motion.div>
 
+                      <ExternalLink className="w-5 h-5 text-gray-400 group-hover:text-purple-400 transition-colors" />
+                    </div>
+
+                    <CardTitle className="text-white group-hover:text-purple-400 transition-colors duration-300">
+                      {exp.title}
+                    </CardTitle>
+
+                    <CardDescription className="text-gray-400">
+                      {exp.company} • {exp.period}
+                    </CardDescription>
+                  </CardHeader>
+
+                  <CardContent className="relative space-y-4">
+                    <p className="text-sm text-gray-300 leading-relaxed">
+                      {exp.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2">
+                      {exp.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1 text-sm rounded-full bg-purple-500/20 text-purple-300 border border-purple-400/30"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </a>
             </motion.div>
           ))}
         </div>
