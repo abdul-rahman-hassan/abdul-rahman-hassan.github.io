@@ -17,7 +17,7 @@ export function Projects() {
       description:
         'Developed a deep learning model to classify autism spectrum disorder eye-tracking data with high accuracy.',
       icon: ExternalLink,
-      tech: ['Convolutional Neural Networks', 'TensorFlow', 'Keras'],
+      tech: ['CNNs', 'TensorFlow', 'Keras'],
       gradient: 'from-pink-400 to-purple-500',
       github:
         'https://github.com/abdul-rahman-hassan/Classification-of-Autism-Spectrum-Disorder'
@@ -27,7 +27,7 @@ export function Projects() {
       description:
         'A convolutional neural network model to classify landmarks from images.',
       icon: ExternalLink,
-      tech: ['PyTorch', 'Python', 'Convolutional Neural Networks'],
+      tech: ['PyTorch', 'Python', 'CNNs'],
       gradient: 'from-blue-400 to-purple-500',
       github:
         'https://github.com/abdul-rahman-hassan/Landmark-Classification-Project'

@@ -21,8 +21,7 @@ export function Experience() {
       skills: [
         "Neural Networks",
         "Sequence Models",
-        "CNNs",
-        "Deep Learning Applications"
+        "CNNs"
       ],
       gradient: "from-pink-400 to-purple-500"
     },
@@ -58,7 +57,7 @@ export function Experience() {
       description:
         "Learned AI programming fundamentals including search algorithms, logic, planning, and probabilistic models using Python.",
       demo: "https://www.udacity.com/certificate/e/ed701f88-5a06-11ed-817d-c761677d1cda",
-      skills: ["Python", "Deep Learning", "Convolutional Neural Networks"],
+      skills: ["Python", "Deep Learning", "CNNs"],
       gradient: "from-blue-400 to-black-500"
     }
   ];
