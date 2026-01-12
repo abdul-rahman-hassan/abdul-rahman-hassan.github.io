@@ -21,7 +21,7 @@ export function Experience() {
       skills: [
         "Neural Networks",
         "Sequence Models",
-        "Convolutional Networks",
+        "CNNs",
         "Deep Learning Applications"
       ],
       gradient: "from-pink-400 to-purple-500"
@@ -35,7 +35,7 @@ export function Experience() {
       demo: "https://www.udacity.com/certificate/e/e3adfd62-ee8f-11ed-aba2-a789ce06efde",
       skills: [
         "AWS SageMaker",
-        "Convolutional Neural Networks",
+        "CNNs",
         "Transfer Learning",
         "ML Workflows"
       ],
