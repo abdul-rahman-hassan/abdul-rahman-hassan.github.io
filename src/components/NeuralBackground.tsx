@@ -18,8 +18,8 @@ export function NeuralBackground() {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    const nodes: Array<{ x: number; y: number; vx: number; vy: number }> = [];
-    const nodeCount = 50;
+    const nodes: Array<{ x: number; y: number; vx: number; vy: number; age?: number }> = [];
+    const nodeCount = 75;
 
     // Initialize nodes
     for (let i = 0; i < nodeCount; i++) {
@@ -31,12 +31,35 @@ export function NeuralBackground() {
       });
     }
 
+    // Handle click to create new nodes
+    const handleClick = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const clickY = e.clientY - rect.top;
+      
+      // Create a single new node at click position
+      nodes.push({
+        x: clickX,
+        y: clickY,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        age: 0, // New nodes start at age 0 for fade-in effect
+      });
+    };
+    
+    window.addEventListener('click', handleClick);
+
     function animate() {
       ctx.fillStyle = 'rgba(2, 8, 23, 0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Update and draw nodes
       nodes.forEach((node, i) => {
+        // Age new nodes for fade-in effect
+        if (node.age !== undefined && node.age < 1) {
+          node.age += 0.02;
+        }
+
         node.x += node.vx;
         node.y += node.vy;
 
@@ -46,10 +69,13 @@ export function NeuralBackground() {
         if (node.y < 0) node.y = canvas.height;
         if (node.y > canvas.height) node.y = 0;
 
+        // Fade-in effect for new nodes
+        const fadeIn = node.age !== undefined ? node.age : 1;
+
         // Draw node
         ctx.beginPath();
         ctx.arc(node.x, node.y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(59, 130, 246, 0.6)';
+        ctx.fillStyle = `rgba(59, 130, 246, ${0.6 * fadeIn})`;
         ctx.fill();
 
         // Draw connections
@@ -59,10 +85,14 @@ export function NeuralBackground() {
           );
 
           if (distance < 150) {
+            // Factor in fade-in for new nodes
+            const otherFadeIn = otherNode.age !== undefined ? otherNode.age : 1;
+            const combinedFade = fadeIn * otherFadeIn;
+
             ctx.beginPath();
             ctx.moveTo(node.x, node.y);
             ctx.lineTo(otherNode.x, otherNode.y);
-            ctx.strokeStyle = `rgba(59, 130, 246, ${0.3 - distance / 500})`;
+            ctx.strokeStyle = `rgba(59, 130, 246, ${(0.3 - distance / 500) * combinedFade})`;
             ctx.lineWidth = 1;
             ctx.stroke();
           }
@@ -76,14 +106,18 @@ export function NeuralBackground() {
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener('click', handleClick);
     };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 w-full h-full pointer-events-none"
-      style={{ background: 'linear-gradient(135deg, #020817 0%, #0f172a 100%)' }}
+      className="fixed inset-0 w-full h-full"
+      style={{ 
+        background: 'linear-gradient(135deg, #020817 0%, #0f172a 100%)',
+        cursor: 'crosshair'
+      }}
     />
   );
 }
